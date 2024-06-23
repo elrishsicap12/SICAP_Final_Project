@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f3e5f5;
+    color: #4a235a;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #6a1b9a;
+    font-size: 2em;
+}
+
+.product-list {
+    margin: 20px 0;
+    width: 80%;
+    background-color: #e1bee7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.product-list select, 
+.product-list input, 
+.product-list button {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ba68c8;
+    border-radius: 5px;
+    background-color: #f3e5f5;
+    color: #4a235a;
+}
+
+.product-list button {
+    background-color: #8e24aa;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-list button:hover {
+    background-color: #6a1b9a;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #8e24aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #6a1b9a;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Stock Management</h1>
+    <div class="product-list">
+        <label for="productSelect">Select a product:</label>
+        <select id="productSelect">
+            <option value="available_Jeans1">Loose Fit Straight Leg Jeans</option>
+            <option value="available_Jeans2">Solid Wide Leg Jeans</option>
+            <option value="available_Jeans3">Cargo Jeans</option>
+            <option value="available_Jeans4">Skinny Jeans</option>
+            <option value="available_TShirt1">Graphic Tee</option>
+            <option value="available_TShirt2">Round Neck Tee</option>
+            <option value="available_TShirt3">Vintage Graphic Tee</option>
+            <option value="available_TShirt4">Tie-Dye Tee</option>
+            <option value="available_perfume1">Miss Sweet Perfume</option>
+            <option value="available_perfume2">Poisoned Apple Perfume</option>
+            <option value="available_perfume3">Sexy Man Perfume</option>
+            <option value="available_perfume4">Cream Cloud Perfume</option>
+            <option value="available_Sando1">Printed Tank Top</option>
+            <option value="available_Sando2">Ruched Tank Top</option>
+            <option value="available_Sando3">Casual Tank Top</option>
+            <option value="available_Sando4">Halter Tank Top</option>
+            <option value="available_toy1">Mini Pool Billiards</option>
+            <option value="available_toy2">Basketball Stand Toy Set</option>
+            <option value="available_toy3">Spring Coil Toy</option>
+            <option value="available_toy4">Capybara Stuffed Toy</option>
+        </select>
+        <label for="quantity">Enter quantity to add/remove:</label>
+        <input type="number" id="quantity" min="1" value="1">
+        <button onclick="adjustStock('add')">Add Stock</button>
+        <button onclick="adjustStock('remove')">Remove Stock</button>
+    </div>
+    <button class="back-button" onclick="window.location.href='activity1_midterm.html'">Back to Store</button>
+
+    <script>
+        function adjustStock(action) {
+            const productSelect = document.getElementById('productSelect');
+            const quantityInput = document.getElementById('quantity');
+            const stockId = productSelect.value;
+            let quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity <= 0) {
+                alert('Please enter a valid quantity.');
+                return;
+            }
+
+            let currentStock = parseInt(localStorage.getItem(stockId)) || 0;
+            if (action === 'add') {
+                currentStock += quantity;
+            } else if (action === 'remove') {
+                if (quantity > currentStock) {
+                    alert('Cannot remove more than current stock.');
+                    return;
+                }
+                currentStock -= quantity;
+            }
+
+            localStorage.setItem(stockId, currentStock);
+            alert(`Stock updated. New stock count: ${currentStock}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Shop Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b4a7d6;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .menu-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .menu-buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            background-color: #ac91db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-buttons button:active {
+            background-color: #a477f2;
+        }
+        .menu-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .menu-content-item {
+            margin: 10px;
+            text-align: center;
+            border: 5px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 280px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-content-item img {
+            width: 280px;
+            height:280px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: Cooper Black, sans-serif;
+            font-size: 50px;
+        }
+        .order-summary {
+            margin-top: 20px;
+        }
+        .order-summary table {
+            margin: 0 auto;
+        }
+        .order-summary th,
+        .order-summary td {
+            padding: 5px 10px;
+        }
+        .remove-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 3px 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <<h1><img src="logo.png" alt="Logo" style="height: 200px; vertical-align: middle;"> Aya's Ethereal Clothing</h1>
+
+        <div class="menu-buttons">
+            <button onclick="showCategory('jeans')">Jeans</button>
+            <button onclick="showCategory('tshirt')">T-Shirts</button>
+            <button onclick="showCategory('perfume')">Perfume</button>
+            <button onclick="showCategory('sando')">Sandos</button>
+            <button onclick="showCategory('toys')">Toys</button>
+        </div>
+
+        <div class="menu-content">
+            <!-- Jeans 1 -->
+<div class="menu-content-item jeans" data-name="Jeans 1" data-price="887" data-quantity="10">
+    <img src="jeans1.jpg" alt="Jeans 1">
+    <span>Loose Fit Straight Leg Jeans - P887</span>
+    <span>Available: <span id="available_Jeans1">10</span></span>
+    <select id="size_Jeans1">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+    </select>
+    <input type="number" min="1" value="1" id="quantity_Jeans1">
+    <button onclick="addToCart('Loose Fit Straight Leg Jeans', 'size_Jeans1', 'quantity_Jeans1', 'available_Jeans1')">Add to Cart</button>
+</div>
+
+<!-- Jeans 2 -->
+<div class="menu-content-item jeans" data-name="Jeans 2" data-price="1015" data-quantity="8">
+    <img src="jeans2.jpg" alt="Jeans 2">
+    <span>Solid Wide Leg Jeans - P1,015</span>
+    <span>Available: <span id="available_Jeans2">8</span></span>
+    <select id="size_Jeans2">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+    </select>
+    <input type="number" min="1" value="1" id="quantity_Jeans2">
+    <button onclick="addToCart('Solid Wide Leg Jeans', 'size_Jeans2', 'quantity_Jeans2', 'available_Jeans2')">Add to Cart</button>
+</div>
+
+<!-- Jeans 3 -->
+<div class="menu-content-item jeans" data-name="Jeans 3" data-price="863" data-quantity="7">
+    <img src="jeans3.jpg" alt="Jeans 3">
+    <span>Cargo Jeans - P863</span>
+    <span>Available: <span id="available_Jeans3">7</span></span>
+    <select id="size_Jeans3">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+    </select>
+    <input type="number" min="1" value="1" id="quantity_Jeans3">
+    <button onclick="addToCart('Cargo Jeans', 'size_Jeans3', 'quantity_Jeans3', 'available_Jeans3')">Add to Cart</button>
+</div>
+
+<!-- Jeans 4 -->
+<div class="menu-content-item jeans" data-name="Jeans 4" data-price="752" data-quantity="5">
+    <img src="jeans4.jpg" alt="Jeans 4">
+    <span>Skinny Jeans - P752</span>
+    <span>Available: <span id="available_Jeans4">5</span></span>
+    <select id="size_Jeans4">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+    </select>
+    <input type="number" min="1" value="1" id="quantity_Jeans4">
+    <button onclick="addToCart('Skinny Jeans', 'size_Jeans4', 'quantity_Jeans4', 'available_Jeans4')">Add to Cart</button>
+</div>
+
+			
+            
+
+            <!-- Shirt 1 -->
+            <div class="menu-content-item tshirt" data-name="T-Shirt 1" data-price="600" data-quantity="8">
+                <img src="shirt1.jpg" alt="T-Shirt 1">
+                <span>Graphic Tee - P600</span>
+                <span>Available: <span id="available_TShirt1">8</span></span>
+                <select id="size_TShirt1">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_TShirt1">
+                <button onclick="addToCart('Graphic Tee', 'size_TShirt1', 'quantity_TShirt1', 'available_TShirt1')">Add to Cart</button>
+            </div>
+            <!-- Shirt 2 -->
+			 <div class="menu-content-item tshirt" data-name="T-Shirt 2" data-price="200" data-quantity="10">
+                <img src="shirt2.jpg" alt="T-Shirt 2">
+                <span>Round Neck Tee - P200</span>
+                <span>Available: <span id="available_TShirt2">10</span></span>
+                <select id="size_TShirt2">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_TShirt2">
+                <button onclick="addToCart('Round Neck Tee', 'size_TShirt2', 'quantity_TShirt2', 'available_TShirt2')">Add to Cart</button>
+            </div>
+			<!-- Shirt 3 -->
+			 <div class="menu-content-item tshirt" data-name="T-Shirt 3" data-price="468" data-quantity="12">
+                <img src="shirt3.jpg" alt="T-Shirt 3">
+                <span> Vintage Graphic Tee - P468</span>
+                <span>Available: <span id="available_TShirt3">12</span></span>
+                <select id="size_TShirt3">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_TShirt3">
+                <button onclick="addToCart('Vintage Graphic Tee', 'size_TShirt3', 'quantity_TShirt3', 'available_TShirt3')">Add to Cart</button>
+            </div>
+			<!-- Shirt 4 -->
+			 <div class="menu-content-item tshirt" data-name="T-Shirt 4" data-price="340" data-quantity="5">
+                <img src="shirt4.jpg" alt="T-Shirt 4">
+                <span>Tie-Dye Tee - P340</span>
+                <span>Available: <span id="available_TShirt4">5</span></span>
+                <select id="size_TShirt4">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_TShirt4">
+                <button onclick="addToCart('Tie-Dye Tee', 'size_TShirt4', 'quantity_TShirt4', 'available_TShirt4')">Add to Cart</button>
+            </div>
+
+            <!-- Perfume 1-->
+            <div class="menu-content-item perfume" data-name="Perfume 1" data-price="280" data-quantity="20">
+                <img src="perfume1.jpg" alt="Perfume 1">
+                <span>Miss Sweet Perfume - P280</span>
+                <span>Available: <span id="available_perfume1">20</span></span>
+                <input type="number" min="1" value="1" id="quantity_perfume1">
+                <button onclick="addToCart('Miss Sweet Perfume', null, 'quantity_perfume1', 'available_perfume1')">Add to Cart</button>
+            </div>
+            <!-- Perfume 2-->
+			 <div class="menu-content-item perfume" data-name="Perfume 2" data-price="350" data-quantity="10">
+                <img src="perfume2.jpg" alt="Perfume 2">
+                <span>Poisoned Apple Perfume - P280</span>
+                <span>Available: <span id="available_perfume2">10</span></span>
+                <input type="number" min="1" value="1" id="quantity_perfume2">
+                <button onclick="addToCart('Poisoned Apple Perfume', null, 'quantity_perfume2', 'available_perfume2')">Add to Cart</button>
+            </div>
+			<!-- Perfume 3-->
+			 <div class="menu-content-item perfume" data-name="Perfume 3" data-price="250" data-quantity="16">
+                <img src="perfume3.jpg" alt="Perfume 3">
+                <span>Sexy Man Perfume - P250</span>
+                <span>Available: <span id="available_perfume3">16</span></span>
+                <input type="number" min="1" value="1" id="quantity_perfume3">
+                <button onclick="addToCart('Sexy Man Perfume', null, 'quantity_perfume3', 'available_perfume3')">Add to Cart</button>
+            </div>
+			<!-- Perfume 4-->
+			 <div class="menu-content-item perfume" data-name="Perfume 4" data-price="240" data-quantity="17">
+                <img src="perfume4.jpg" alt="Perfume 4">
+                <span>Cream Cloud Perfume - P240</span>
+                <span>Available: <span id="available_perfume4">17</span></span>
+                <input type="number" min="1" value="1" id="quantity_perfume4">
+                <button onclick="addToCart('Cream Cloud Perfume', null, 'quantity_perfume4', 'available_perfume4')">Add to Cart</button>
+            </div>
+
+            <!-- Sando 1 -->
+            <div class="menu-content-item sando" data-name="Sando 1" data-price="315" data-quantity="8">
+                <img src="sando1.jpg" alt="Sando 1">
+                <span>Printed Tank Top - P315</span>
+                <span>Available: <span id="available_Sando1">8</span></span>
+                <select id="size_Sando1">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_Sando1">
+                <button onclick="addToCart('Printed Tank Top', 'size_Sando1', 'quantity_Sando1', 'available_Sando1')">Add to Cart</button>
+            </div>
+            <!-- Sando 2 -->
+			 <div class="menu-content-item sando" data-name="Sando 2" data-price="321" data-quantity="15">
+                <img src="sando2.jpg" alt="Sando 2">
+                <span>Ruched Tank Top - P321</span>
+                <span>Available: <span id="available_Sando2">15</span></span>
+                <select id="size_Sando2">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_Sando2">
+                <button onclick="addToCart('Ruched Tank Top', 'size_Sando2', 'quantity_Sando2', 'available_Sando2')">Add to Cart</button>
+            </div>
+			<!-- Sando 3 -->
+			<div class="menu-content-item sando" data-name="Sando 3" data-price="202" data-quantity="12">
+                <img src="sando3.jpg" alt="Sando 3">
+                <span>Casual Tank Top - P202</span>
+                <span>Available: <span id="available_Sando3">12</span></span>
+                <select id="size_Sando3">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_Sando3">
+                <button onclick="addToCart('Casual Tank Top', 'size_Sando3', 'quantity_Sando3', 'available_Sando3')">Add to Cart</button>
+            </div>
+			<!-- Sando 4 -->
+			<div class="menu-content-item sando" data-name="Sando 4" data-price="231" data-quantity="24">
+                <img src="sando4.jpg" alt="Sando 4">
+                <span>Halter Tank Top - P231</span>
+                <span>Available: <span id="available_Sando4">24</span></span>
+                <select id="size_Sando4">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+                <input type="number" min="1" value="1" id="quantity_Sando4">
+                <button onclick="addToCart('Halter Tank Top', 'size_Sando4', 'quantity_Sando4', 'available_Sando4')">Add to Cart</button>
+            </div>
+
+            <!-- Toy 1 -->
+            <div class="menu-content-item toys" data-name="Toy 1" data-price="200" data-quantity="18">
+                <img src="toy1.jpg" alt="Toy 1">
+                <span>Mini Pool Billiards - P200</span>
+                <span>Available: <span id="available_toy1">18</span></span>
+                <input type="number" min="1" value="1" id="quantity_toy1">
+                <button onclick="addToCart('Mini Pool Billiards', null, 'quantity_toy1', 'available_toy1')">Add to Cart</button>
+            </div>
+            <!-- Toy 2 -->
+			<div class="menu-content-item toys" data-name="Toy 2" data-price="126" data-quantity="8">
+                <img src="toy2.jpg" alt="Toy 2">
+                <span>Basketball Stand Toy Set - P126</span>
+                <span>Available: <span id="available_toy2">8</span></span>
+                <input type="number" min="1" value="1" id="quantity_toy2">
+                <button onclick="addToCart('Basketball Stand Toy Set', null, 'quantity_toy2', 'available_toy2')">Add to Cart</button>
+            </div>
+			<!-- Toy 3 -->
+			<div class="menu-content-item toys" data-name="Toy 3" data-price="300" data-quantity="16">
+                <img src="toy3.jpg" alt="Toy 3">
+                <span>Capybara Stuffed Toy - P300</span>
+                <span>Available: <span id="available_toy3">16</span></span>
+                <input type="number" min="1" value="1" id="quantity_toy3">
+                <button onclick="addToCart('Capybara Stuffed Toy', null, 'quantity_toy3', 'available_toy3')">Add to Cart</button>
+            </div>
+			<!-- Toy 4 -->
+			<div class="menu-content-item toy" data-name="Toy 4" data-price="85" data-quantity="16">
+			<img src="toy4.jpg" alt="Capybara Stuffed Toy">
+			<span>Spring Coil Toy - P85</span>
+			<span>Available: <span id="available_toy4">16</span></span>
+			<input type="number" min="1" value="1" id="quantity_toy4">
+			<button onclick="addToCart('Spring Coil Toy', null, 'quantity_toy4', 'available_toy4')">Add to Cart</button>
+			</div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Size</th>
+                        <th>Quantity</th>
+                        <th>Price per Item</th>
+                        <th>Total Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="order-items">
+                </tbody>
+            </table>
+            <div>Total: <span id="total-price">0</span></div>
+        </div>
+    </div>
+
+    <script>
+        var inventory = {
+    "Loose Fit Straight Leg Jeans": { price: 887, quantity: 10 },
+    "Solid Wide Leg Jeans": { price: 1015, quantity: 8 },
+    "Cargo Jeans": { price: 863, quantity: 7 },
+    "Skinny Jeans": { price: 752, quantity: 5 },
+    "Graphic Tee": { price: 600, quantity: 8 },
+    "Round Neck Tee": { price: 200, quantity: 10 },
+    "Vintage Graphic Tee": { price: 468, quantity: 12 },
+    "Tie-Dye Tee": { price: 340, quantity: 5 },
+    "Miss Sweet Perfume": { price: 280, quantity: 20 },
+    "Poisoned Apple Perfume": { price: 350, quantity: 10 },
+    "Sexy Man Perfume": { price: 250, quantity: 16 },
+    "Cream Cloud Perfume": { price: 240, quantity: 17 },
+    "Printed Tank Top": { price: 315, quantity: 8 },
+    "Ruched Tank Top": { price: 321, quantity: 15 },
+    "Casual Tank Top": { price: 202, quantity: 12 },
+    "Halter Tank Top": { price: 231, quantity: 24 },
+    "Mini Pool Billiards": { price: 200, quantity: 18 },
+    "Basketball Stand Toy Set": { price: 126, quantity: 8 },
+	"Spring Coil Toy": { price: 85, quantity: 15 },
+    "Capybara Stuffed Toy": { price: 300, quantity: 16 },
+    "Spring Coil Toy": { price: 85, quantity: 15 }
+	
+};
+
+        var cart = [];
+
+        function addToCart(name, sizeId, quantityId, availableId) {
+            var sizeElement = document.getElementById(sizeId);
+            var quantityElement = document.getElementById(quantityId);
+            var availableElement = document.getElementById(availableId);
+
+            var size = sizeElement ? sizeElement.value : null;
+            var quantity = parseInt(quantityElement.value);
+            var available = parseInt(availableElement.textContent);
+
+            var item = inventory[name];
+            if (!item) {
+                alert("Item not found in inventory.");
+                return;
+            }
+
+            if (quantity > available) {
+                alert("Not enough quantity available.");
+                return;
+            }
+
+            item.quantity -= quantity;
+            availableElement.textContent = available - quantity;
+
+            var totalPrice = item.price * quantity;
+            cart.push({ name: name, size: size, quantity: quantity, totalPrice: totalPrice });
+            updateOrderSummary();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateOrderSummary();
+        }
+
+
+        function updateOrderSummary() {
+            var orderItemsElement = document.getElementById('order-items');
+            var totalPriceElement = document.getElementById('total-price');
+            var total = 0;
+
+            // Clear existing order items
+            orderItemsElement.innerHTML = '';
+
+            // Update order items
+            cart.forEach(function(item, index) {
+                var row = document.createElement('tr');
+                var nameCell = document.createElement('td');
+                var sizeCell = document.createElement('td');
+                var quantityCell = document.createElement('td');
+                var pricePerItemCell = document.createElement('td');
+                var totalPriceCell = document.createElement('td');
+                var removeButtonCell = document.createElement('td');
+                var removeButton = document.createElement('button');
+
+                nameCell.textContent = item.name;
+                sizeCell.textContent = item.size ? item.size : '-';
+                quantityCell.textContent = item.quantity;
+                pricePerItemCell.textContent = 'P' + inventory[item.name].price;
+                totalPriceCell.textContent = 'P' + item.totalPrice;
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.onclick = function() {
+                    removeFromCart(index);
+                };
+
+
+
+                row.appendChild(nameCell);
+                row.appendChild(sizeCell);
+                row.appendChild(quantityCell);
+                row.appendChild(pricePerItemCell);
+                row.appendChild(totalPriceCell);
+                removeButtonCell.appendChild(removeButton);
+                row.appendChild(removeButtonCell);
+                orderItemsElement.appendChild(row);
+
+                total += item.totalPrice;
+            });
+
+            // Update total price
+            totalPriceElement.textContent = 'P' + total;
+        }
+
+        function showCategory(category) {
+            var items = document.querySelectorAll('.menu-content-item');
+            items.forEach(function(item) {
+                item.style.display = 'none';
+            });
+
+            var categoryItems = document.querySelectorAll('.menu-content-item.' + category);
+            categoryItems.forEach(function(item) {
+                item.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>
