@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			background-image: url('backimage.jpg');
+        }
+		backgound-image {
+			opacity: 0.5;
+			}
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .menu-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .menu-buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            background-color: #ac91db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-buttons button:active {
+            background-color: #a477f2;
+        }
+        .menu-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .menu-content-item {
+            margin: 10px;
+            text-align: center;
+            border: 5px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-content-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: "Brush Script MT", cursive;
+            font-size: 80px;
+        }
+        .category-name {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        .order-summary {
+            margin-top: 20px;
+        }
+        .order-summary table {
+            margin: 0 auto;
+        }
+        .order-summary th,
+        .order-summary td {
+            padding: 5px 10px;
+        }
+        .remove-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 3px 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ligaya's Kitchen</h1>
+        <div class="menu-buttons">
+            <button onclick="showCategory('main')">Main Dish</button>
+            <button onclick="showCategory('vegetable')">Vegetable</button>
+            <button onclick="showCategory('dessert')">Dessert</button>
+            <button onclick="showCategory('drinks')">Drinks</button>
+            <button onclick="showCategory('addons')">Add Ons</button>
+        </div>
+
+        <div class="menu-content">
+            <!-- Main Dish -->
+            <div class="menu-content-item main" data-name="Adobo" data-price="150">
+                <img src="adobo.jpg" alt="Adobo">
+                <span>Adobo - P150 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Adobo">
+                <button onclick="addToCart('Adobo', 150, 'quantity_Adobo')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item main" data-name="Sinigang" data-price="160">
+                <img src="sinigang.jpg" alt="Sinigang">
+                <span>Sinigang - P160 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Sinigang">
+                <button onclick="addToCart('Sinigang', 160, 'quantity_Sinigang')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item main" data-name="Kare-Kare" data-price="180">
+                <img src="karekare.jpg" alt="Kare-Kare">
+                <span>Kare-Kare - P180 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_KareKare">
+                <button onclick="addToCart('Kare-Kare', 180, 'quantity_KareKare')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item main" data-name="Menudo" data-price="150">
+                <img src="menudo.jpeg" alt="Menudo">
+                <span>Menudo - P150 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Menudo">
+                <button onclick="addToCart('Menudo', 150, 'quantity_Menudo')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item main" data-name="Pork Steak" data-price="160">
+                <img src="bistek.jpeg" alt="Pork Steak">
+                <span>Pork Steak - P160 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_PorkSteak">
+                <button onclick="addToCart('Pork Steak', 160, 'quantity_PorkSteak')">Add to Cart</button>
+            </div>
+
+            <!-- Vegetable -->
+            <div class="menu-content-item vegetable" data-name="Ampalaya" data-price="100">
+                <img src="ampalaya.jpg" alt="Ampalaya">
+                <span>Ampalaya - P100 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Ampalaya">
+                <button onclick="addToCart('Ampalaya', 100, 'quantity_Ampalaya')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item vegetable" data-name="Laing" data-price="80">
+                <img src="laing.jpg" alt="Laing">
+                <span>Laing - P80 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Laing">
+                <button onclick="addToCart('Laing', 80, 'quantity_Laing')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item vegetable" data-name="Chopsuey" data-price="120">
+                <img src="chopsuey.jpg" alt="Chopsuey">
+                <span>Chopsuey - P120 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Chopsuey">
+                <button onclick="addToCart('Chopsuey', 120, 'quantity_Chopsuey')">Add to Cart</button>
+            </div>
+
+            <!-- Dessert -->
+            <div class="menu-content-item dessert" data-name="Cake" data-price="110">
+                <img src="cake.jpg" alt="Cake">
+                <span>Cake - P110 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Cake">
+                <button onclick="addToCart('Cake', 110, 'quantity_Cake')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item dessert" data-name="Cookies" data-price="80">
+                <img src="cookies.jpg" alt="Cookies">
+                <span>Cookies - P80 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Cookies">
+                <button onclick="addToCart('Cookies', 80, 'quantity_Cookies')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item dessert" data-name="Ice Cream" data-price="60">
+                <img src="icecream.jpg" alt="Ice Cream">
+                <span>Ice Cream - P60 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_IceCream">
+                <button onclick="addToCart('Ice Cream', 60, 'quantity_IceCream')">Add to Cart</button>
+            </div>
+
+            <!-- Drinks -->
+            <div class="menu-content-item drinks" data-name="Coke" data-price="60">
+                <img src="coke.jpg" alt="Coke">
+                <span>Coke - P60 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Coke">
+                <button onclick="addToCart('Coke', 60, 'quantity_Coke')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item drinks" data-name="Juice" data-price="50">
+                <img src="juice.jpeg" alt="Juice">
+                <span>Juice - P50 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Juice">
+                <button onclick="addToCart('Juice', 50, 'quantity_Juice')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item drinks" data-name="Coffee" data-price="90">
+                <img src="coffee.png" alt="Coffee">
+                <span>Coffee - P90 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Coffee">
+                <button onclick="addToCart('Coffee', 90, 'quantity_Coffee')">Add to Cart</button>
+            </div>
+
+            <!-- Add Ons -->
+            <div class="menu-content-item addons" data-name="Extra Rice" data-price="30">
+                <img src="rice.png" alt="Extra Rice">
+                <span>Extra Rice - P30 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_ExtraRice">
+                <button onclick="addToCart('Extra Rice', 30, 'quantity_ExtraRice')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item addons" data-name="Atchara" data-price="80">
+                <img src="atchara.jpg" alt="Atchara">
+                <span>Atchara - P80 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Atchara">
+                <button onclick="addToCart('Atchara', 80, 'quantity_Atchara')">Add to Cart</button>
+            </div>
+            <div class="menu-content-item addons" data-name="Fries" data-price="70">
+                <img src="fries.jpeg" alt="Fries">
+                <span>Fries - P70 per serving</span>
+                <input type="number" min="1" value="1" id="quantity_Fries">
+                <button onclick="addToCart('Fries', 70, 'quantity_Fries')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price per Serving</th>
+                        <th>Total Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="order-items">
+                </tbody>
+            </table>
+            <div>Total: <span id="total-price">0</span></div>
+        </div>
+    </div>
+
+    <script>
+        var cart = [];
+        
+        function showCategory(category) {
+            var items = document.querySelectorAll('.menu-content-item');
+            items.forEach(function(item) {
+                item.style.display = 'none';
+            });
+
+            var categoryItems = document.querySelectorAll('.menu-content-item.' + category);
+            categoryItems.forEach(function(item) {
+                item.style.display = 'block';
+            });
+        }
+
+        function addToCart(name, price, quantityId) {
+            var quantity = parseInt(document.getElementById(quantityId).value);
+            cart.push({ name: name, price: price, quantity: quantity });
+            updateOrderSummary();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateOrderSummary();
+        }
+
+        function updateOrderSummary() {
+            var orderItemsElement = document.getElementById('order-items');
+            var totalPriceElement = document.getElementById('total-price');
+            var total = 0;
+
+            // Clear existing order items
+            orderItemsElement.innerHTML = '';
+
+            // Update order items
+            cart.forEach(function(item, index) {
+                var row = document.createElement('tr');
+                var nameCell = document.createElement('td');
+                var quantityCell = document.createElement('td');
+                var pricePerServingCell = document.createElement('td');
+                var totalPriceCell = document.createElement('td');
+                var removeButtonCell = document.createElement('td');
+                var removeButton = document.createElement('button');
+                
+                nameCell.textContent = item.name;
+                quantityCell.textContent = item.quantity;
+                pricePerServingCell.textContent = 'P' + item.price;
+                totalPriceCell.textContent = 'P' + (item.price * item.quantity);
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.onclick = function() {
+                    removeFromCart(index);
+                };
+
+                row.appendChild(nameCell);
+                row.appendChild(quantityCell);
+                row.appendChild(pricePerServingCell);
+                row.appendChild(totalPriceCell);
+                removeButtonCell.appendChild(removeButton);
+                row.appendChild(removeButtonCell);
+                orderItemsElement.appendChild(row);
+
+                total += item.price * item.quantity;
+            });
+
+            // Update total price
+            totalPriceElement.textContent = 'P' + total;
+        }
+    </script>
+</body>
+</html>

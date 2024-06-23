@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Activities</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('bg.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .navbar {
+      background-color: #9370DB;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .text-container {
+      background: url('bg2.gif') repeat center center;
+      background-size: cover;
+      background-blend-mode: overlay;
+      padding: 100px;
+	  color: white;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .activities-container {
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+	  background-color: rgba(255,255,255,0.3);
+    }
+	   .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 250px;
+      object-fit: cover;
+    }
+    .card-title {
+      color: #6A5ACD;
+    }
+    .btn-primary {
+      background-color: rgba(230, 230, 250, 0.8);
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #483D8B;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand">Elrish Joy Sicap</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="activity1_midterm.html">Clothing Store</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="activity2_prelim.html">Registration Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Sicap_Resume.html">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="resto.html">Restaurant Menu</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="text-container">
+      <h1 class="mb-4">My Activities</h1>
+	  <a>Explore my Activities</a>
+    </div>
+    <div class="activities-container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <div class="img-container">
+              <img src="ethereal.png" class="card-img-top" alt="Activity 1 Image">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Clothing Store</h5>
+              <p class="card-text">Aya's Ethereal Clothing</p>
+              <a href="activity1_midterm.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <div class="img-container">
+              <img src="regimage.png" class="card-img-top" alt="Activity 2 Image">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Registration Form</h5>
+              <p class="card-text">Certificate of Registration</p>
+              <a href="activity2_prelim.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <div class="img-container">
+              <img src="resimage.png" class="card-img-top" alt="Activity 3 Image">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Resume</h5>
+              <p class="card-text">This is my Resume.</p>
+              <a href="Sicap_Resume.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <div class="img-container">
+              <img src="menu.png" class="card-img-top" alt="Activity 4 Image">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Restaurant Menu</h5>
+              <p class="card-text">Ligaya's Kitchen</p>
+              <a href="resto.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
